@@ -10,7 +10,7 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
     
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -30,19 +30,28 @@
               <a class="nav-link" href="#" id="Productos">Mostrar Productos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item mr-auto">
-              <a class="nav-link" id="electronica" href="#">Electronica<i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link" id="electronica" href="#">Electronica</a>
             </li>
             <li class="nav-item mr-auto">
-              <a class="nav-link" id="hombre" href="#">Hombre<i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link" id="hombre" href="#">Hombre</a>
             </li>
             <li class="nav-item mr-auto">
-              <a class="nav-link" id="mujer" href="#">Mujer<i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link" id="mujer" href="#">Mujer</a>
             </li>
             <li class="nav-item mr-auto">
-              <a class="nav-link" id="joyas" href="#">Joyas<i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link" id="joyas" href="#">Joyas</a>
             </li>
             <li class="nav-item mr-auto">
-              <a class="nav-link" href="#" id="carrito">carrito<i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link" href="#" id="carrito">Carritos</a>
+            </li>
+            <li class="nav-item mr-auto">
+              <a class="nav-link" href="#" id="carritoApi">Carrito Api</a>
+            </li>
+            <li class="nav-item mr-auto">
+              <a class="nav-link" href="#" id="login">Login</a>
+            </li>
+            <li class="nav-item mr-auto">
+              <a class="nav-link" href="#" id="register">Registrar</a>
             </li>
           </ul>
         </div>
@@ -51,7 +60,9 @@
 
       
     <!-- Aqui tenemos los contenedores donde mostraremos lo solicitado -->
-    <div id="contenedor" class="row justify-content-md-center"></div> 
+    <div id="contenedor" class="row justify-content-md-center">    </div> 
+    <button id="ascendente" onclick="asc()">Ascendente</button>
+    <button id="descendente" onclick="desc()">Descendente</button>
     
     <div id="categorias"></div>
     
