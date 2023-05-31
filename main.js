@@ -23,141 +23,162 @@ async function crearCarrito() {
 
 
 }
+// Funcion para hacer el login de la Api
 async function login() {
   await fetch('https://fakestoreapi.com/users')
     .then(res => res.json())
     .then(json => { comprueba(json) })
-
 }
+// Funcion que comprueba si el login se realiza bien o no
 function comprueba(j) {
   let salir = true;
   let i = 0;
   const usuario = document.getElementById('email').value;
   const clave = document.getElementById('password').value;
-  // m38rmF$
   console.log("Login");
   console.log(j);
-  while(i < j.length && salir){
-    if(j[i].username == usuario && j[i].password == clave)
+  while (i < j.length && salir) {
+    if (j[i].username == usuario && j[i].password == clave)
       salir = false;
     i++;
   }
   console.log(salir);
   // Operador ternario
-  alert(salir == false?'El usuario es correcto' : 'El usuario es invalido');
+  alert(salir == false ? 'El usuario es correcto' : 'El usuario es invalido');
 }
-document.getElementById("login").addEventListener("click", function () {
-  limpiarCapas();
-  pintarLogin();
-});
-function pintarLogin(){
-  document.getElementById("contenedor").innerHTML = "";
-  // console.log(productos);
-    document.getElementById("contenedor").innerHTML =`
-    <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">El usuario debe existir en la Api</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <a href="#" onclick='login()' class="btn btn-primary">Submit</a>
 
-</form>            
+function pintarLogin() {
+  document.getElementById("contenedor").innerHTML = "";
+  document.getElementById("contenedor").innerHTML = `
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">El usuario debe existir en la Api</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <a href="#" onclick='login()' class="btn btn-primary">Submit</a>
+    </form>            
         `;
 }
 
-// Registrar
+// Funcion para Registrar un Ususario Simulado
 async function register() {
-  fetch('https://fakestoreapi.com/users',{
-            method:"POST",
-            body:JSON.stringify(
-                {
-                    email:document.getElementById('usuario').value,
-                    username:'johnd',
-                    password:document.getElementById('contrasena').value,
-                    name:{
-                        firstname:document.getElementById('nombre').value,
-                        lastname:document.getElementById('apellidos').value
-                    },
-                    address:{
-                        city:'kilcoole',
-                        street:'7835 new road',
-                        number:3,
-                        zipcode:'12926-3874',
-                        geolocation:{
-                            lat:'-37.3159',
-                            long:'81.1496'
-                        }
-                    },
-                    phone:'1-570-236-7033'
-                }
-            )
-        })
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-            alert("Usuario registrado");
+  fetch('https://fakestoreapi.com/users', {
+    method: "POST",
+    body: JSON.stringify(
+      {
+        email: document.getElementById('usuario').value,
+        username: 'johnd',
+        password: document.getElementById('contrasena').value,
+        name: {
+          firstname: document.getElementById('nombre').value,
+          lastname: document.getElementById('apellidos').value
+        },
+        address: {
+          city: 'kilcoole',
+          street: '7835 new road',
+          number: 3,
+          zipcode: '12926-3874',
+          geolocation: {
+            lat: '-37.3159',
+            long: '81.1496'
+          }
+        },
+        phone: '1-570-236-7033'
+      }
+    )
+  })
+    .then(res => res.json())
+    .then(json => console.log(
+      {
+        // Aqui lo mostrará por la consola para simular su registro
+        email: document.getElementById('usuario').value,
+        username: 'johnd',
+        password: document.getElementById('contrasena').value,
+        name: {
+          firstname: document.getElementById('nombre').value,
+          lastname: document.getElementById('apellidos').value
+        },
+        address: {
+          city: 'kilcoole',
+          street: '7835 new road',
+          number: 3,
+          zipcode: '12926-3874',
+          geolocation: {
+            lat: '-37.3159',
+            long: '81.1496'
+          }
+        },
+        phone: '1-570-236-7033'
+      }
+    ))
+  alert("Usuario registrado");
 
 }
-document.getElementById("register").addEventListener("click", function () {
-  limpiarCapas();
-  pintarRegister();
-});
-function pintarRegister(){
+
+function pintarRegister() {
   document.getElementById("contenedor").innerHTML = "";
   // console.log(productos);
-    document.getElementById("contenedor").innerHTML =`
+  document.getElementById("contenedor").innerHTML = `
     <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="usuario" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="contrasena" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Nombre</label>
-    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Apellidos</label>
-    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
-  </div>
-  <a href="#" onclick='register()' class="btn btn-primary">Submit</a>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="usuario" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control" id="contrasena" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+      </div>
+      <a href="#" onclick='register()' class="btn btn-primary">Submit</a>
 
-</form>           
+    </form>           
         `;
 }
 
 // Carrito Api
 async function carro() {
   fetch('https://fakestoreapi.com/carts/6')
-            .then(res=>res.json())
-            .then(json=>{
-              pintarCarro(json);
-            })
+    .then(res => res.json())
+    .then(json => {
+      pintarCarro(json);
+    })
 }
-document.getElementById("carritoApi").addEventListener("click", function () {
-  limpiarCapas();
-  carro();
-});
-function pintarCarro(json){
+
+function pintarCarro(json) {
   document.getElementById("contenedor").innerHTML = "";
   // console.log(productos);
-    document.getElementById("contenedor").innerHTML =`
-    <ul>
-      <li>Id: ${json.id}</li>
-      <li>Usuario Id: ${json.userId}</li>
-      <li>Fecha: ${json.date}</li>
-      <li>Productos: ${JSON.stringify(json.products)}</li>
-    </ul>       
-        `;
+  json.products.forEach((product)=>{
+    fetch('https://fakestoreapi.com/products/'+product.productId)
+    .then(res => res.json())
+    .then(json2 => {
+      document.getElementById("contenedor").innerHTML += `
+      <ul>
+        <li>Id: ${product.productId}</li>
+        <li>Nombre: ${json2.title}</li>
+        <li>Precio: ${json2.price} €</li>
+        <li>Productos: <img src="${json2.image}" with="100px" height="100px"></li>
+      </ul>       
+          `;
+    })
+  })
+}
+// Funcion comprar carrito de la api
+function RealizarPedido(){
+  alert("Has realizado tu pedido");
 }
 
 // Funcion para obtener los productos
@@ -246,6 +267,38 @@ function añadirCarrito(id) {
     .then(json => alert("El producto con " + json.title + " se ha añadido al carrito"));
 
 }
+// Mostrar Productos de forma Descendente
+async function desc() {
+  const url = "https://fakestoreapi.com/products?sort=desc&limit=" + nproductos;
+
+  try {
+    // await bloquea la ejecucion del codigo y hasta que no se resuelva no va  a ejecutarse el resultado
+    // fetch coger esa parte
+    const resultado = await fetch(url);
+    respuesta = await resultado.json();
+    console.log(respuesta);
+    pintarProductos(respuesta);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Mostrar Productos de forma Ascendente
+async function asc() {
+  const url = "https://fakestoreapi.com/products?sort=asc&limit=" + nproductos;
+
+  try {
+    // await bloquea la ejecucion del codigo y hasta que no se resuelva no va  a ejecutarse el resultado
+    // fetch coger esa parte
+    const resultado = await fetch(url);
+    respuesta = await resultado.json();
+    console.log(respuesta);
+    pintarProductos(respuesta);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Categoria Electronics
 fetch('https://fakestoreapi.com/products/category/electronics')
   .then(res => res.json())
@@ -353,12 +406,31 @@ function indice() {
 function limpiarCapas() {
   document.getElementById("contenedor").innerHTML = "";
   document.getElementById("categorias").innerHTML = "";
+  document.getElementById("descendente").style.display = 'none';
+  document.getElementById("ascendente").style.display = 'none';
+  document.getElementById("RealizarPedido").style.display = 'none';
 }
 
 
 // Capa de Productos
 document.getElementById("Productos").addEventListener("click", function () {
   pintarProductos(respuesta);
+  document.getElementById("descendente").style.display = '';
+  document.getElementById("ascendente").style.display = '';
+});
+// Mostrar de forma Descendente
+document.getElementById("descendente").addEventListener("click", function () {
+  limpiarCapas();
+  document.getElementById("descendente").style.display = '';
+  document.getElementById("ascendente").style.display = '';
+  muestraCategoria(descendente);
+});
+// Mostrar de forma Ascendente
+document.getElementById("ascendente").addEventListener("click", function () {
+  limpiarCapas();
+  document.getElementById("descendente").style.display = '';
+  document.getElementById("ascendente").style.display = '';
+  muestraCategoria(ascendente);
 });
 
 
@@ -383,6 +455,17 @@ document.getElementById("joyas").addEventListener("click", function () {
   muestraCategoria(categoria4);
 });
 
+// Capa de Login
+document.getElementById("login").addEventListener("click", function () {
+  limpiarCapas();
+  pintarLogin();
+});
+
+// Capa Register
+document.getElementById("register").addEventListener("click", function () {
+  limpiarCapas();
+  pintarRegister();
+});
 
 // Capa de carrito
 document.getElementById("carrito").addEventListener("click", function () {
@@ -390,13 +473,15 @@ document.getElementById("carrito").addEventListener("click", function () {
   fetch('https://fakestoreapi.com/carts')
     .then(res => res.json())
     .then(json => console.log(json))
-  document.getElementById("contenedor").innerHTML ="Mira en la consola los diferentes usuarios";
+  document.getElementById("contenedor").innerHTML = "Mira en la consola los diferentes usuarios";
 
 });
 
 // Capa del carrito de la Api
 document.getElementById("carritoApi").addEventListener("click", function () {
   limpiarCapas();
-
+  carro();
+  document.getElementById("RealizarPedido").style.display = 'grid';
 });
+
 

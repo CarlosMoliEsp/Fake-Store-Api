@@ -57,14 +57,16 @@
         </div>
       </nav>
 
-
-      
+    <!-- Boton para mostrar de forma ascendente y descendente -->
+      <button id="ascendente" onclick="asc()">Ascendente</button>
+      <button id="descendente" onclick="desc()">Descendente</button>  
     <!-- Aqui tenemos los contenedores donde mostraremos lo solicitado -->
     <div id="contenedor" class="row justify-content-md-center">    </div> 
-    <button id="ascendente" onclick="asc()">Ascendente</button>
-    <button id="descendente" onclick="desc()">Descendente</button>
     
     <div id="categorias"></div>
+    
+    <!-- Boton para realizar el pedido en el carrito de la Api -->
+    <button id="RealizarPedido" onclick="RealizarPedido()">Realizar Pedido</button>  
     
     <!-- Link JavaScript propio -->
     <script src="main.js"></script>

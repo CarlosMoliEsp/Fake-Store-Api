@@ -61,11 +61,12 @@ label {
   .modal {
 	color: #000;
 	background: #fff;
-	max-height: calc(100% - 100px) !important;
+	max-height: 100% !important;
+	height: 650px;
 	position: fixed !important;
-	top: 30% !important;
+	top: 50% !important;
 	left: 50% !important;
-	max-width: 1000px !important;
+	max-width:70% !important; 
 	transform: translate(-50%, -50%) !important;
 	transition: .3s ease !important;
 	display: none;
