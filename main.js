@@ -47,6 +47,7 @@ function comprueba(j) {
   alert(salir == false ? 'El usuario es correcto' : 'El usuario es invalido');
 }
 
+// Funcion para dibujar el FORM del Login 
 function pintarLogin() {
   document.getElementById("contenedor").innerHTML = "";
   document.getElementById("contenedor").innerHTML = `
@@ -120,6 +121,7 @@ async function register() {
 
 }
 
+// Funcion para dibujar el FORM del Register
 function pintarRegister() {
   document.getElementById("contenedor").innerHTML = "";
   // console.log(productos);
@@ -157,7 +159,7 @@ async function carro() {
       pintarCarro(json);
     })
 }
-
+//Funcion para mostrar comprar un carro de la API 
 function pintarCarro(json) {
   document.getElementById("contenedor").innerHTML = "";
   // console.log(productos);
@@ -219,7 +221,7 @@ function pintarProductos(productos) {
             <p>${category}</p>
             <p>${description}</p>
 		        <p>Precio: ${price}</p>
-            <button onclick='cerrar(${id})' class="close">Close</button> 
+            <button onclick='cerrar(${id})' class="close">Cerrar</button> 
 		        <a href="#" onclick='añadirCarrito(${id})' class="btn btn-primary add-to-cart">Añadir al carrito</a>		  
           </div>
           <a href="#" id="${id}" onclick='abrir(${id})' class="btn btn-primary add-to-cart">ver</a>
