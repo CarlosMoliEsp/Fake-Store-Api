@@ -239,7 +239,7 @@ $(window).scroll(function () {
   // console.log($(window).scrollTop());
   if (
     $(window).scrollTop() + $(window).height() >=
-    $(document).height() - 100
+    $(document).height() 
   ) {
     nproductos = nproductos + 8;
     alert("Esta cargando los productos...");
